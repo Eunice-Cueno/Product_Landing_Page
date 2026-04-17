@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoseWood Cafe - Where Flaky Pastries Meet Bold Brews</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-spa"></i>
+                    <h1>RoseWood</h1>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#shop" class="nav-link">Shop</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to our cozy cafe</h1>
+            <p>where flaky pastries meet bold brews in one perfect sip.</p>
+            <button class="cta-button" onclick="scrollToShop()">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Browse The Range Section -->
+    <section class="browse-range">
+        <div class="container">
+            <p class="sub-headline">Choose what sparks your vibe</p>
+            <h2 class="section-title">Browse The Range</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('pastries')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastries" onerror="this.src='https://picsum.photos/seed/pastries/300/200.jpg'">
+                    </div>
+                    <h3>Pastries</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('coffee')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Coffee" onerror="this.src='https://picsum.photos/seed/coffee/300/200.jpg'">
+                    </div>
+                    <h3>Coffee</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('tea')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Tea" onerror="this.src='https://picsum.photos/seed/tea/300/200.jpg'">
+                    </div>
+                    <h3>Tea</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Picks Section -->
+    <section id="shop" class="top-picks">
+        <div class="container">
+            <h2 class="section-title">TOP PICKS</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+        <div class="about-background"></div>
+        <div class="container">
+            <div class="about-content">
+                <h2>About us</h2>
+                <p>At Rosewood, baking is more than bread—it's an art of warmth and delight. Our oven hums with tradition, kissed by a touch of modern charm. From golden loaves to dainty pastries, every bite is crafted to feel like a sweet pause in your day. Think rustic comfort, wrapped in rosy elegance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The best pastries I've ever tasted! The Crimson Bloom Tart is absolutely divine."</p>
+                    <div class="customer-name">- Arianna Grande</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Cozy atmosphere and amazing coffee. My go-to place for weekend brunch!"</p>
+                    <div class="customer-name">- Rihanna</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"The Pink Chai tea is unique and refreshing. Love's rose-infused flavors!"</p>
+                    <div class="customer-name">- Emily R.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Rose Street, Quezon City, Mnl, Philippines</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+63 917 123 4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>rose_wood@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Sun, 7 AM-9 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RoseWood Cafe</h3>
+                    <p>Where every bite is a moment of bliss.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showTerms()">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="showPrivacy()">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" onclick="openSocial('facebook')"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" onclick="openSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="openSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RoseWood Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total: ₱<span id="cartTotal">0</span></strong>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = [
+            { id: 1, name: 'Cranberry Curd Bars', price: 65, category: 'pastries', image: 'https://www.mealbulk.com/wp-content/uploads/2025/11/Cranberry-Curd-Bars.jpg' },
+            { id: 2, name: 'Caramel Blush Milkshake', price: 185, category: 'coffee', image: 'https://th.bing.com/th/id/OIP.zD3rzlfIRhnXcTxMMmJdoAAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+            { id: 3, name: 'Battenberg Cake', price: 75, category: 'pastries', image: 'https://www.tasteofhome.com/wp-content/uploads/2024/11/Battenburg-Cake_EXPS_TOHcom24_277859_MD_P2_10_24_1b.jpg' },
+            { id: 4, name: 'Crimson Bloom Tart', price: 195, category: 'pastries', image: 'https://images.stockcake.com/public/d/7/4/d74e77d1-3cd0-48ea-bbd6-dc5c8386139b_large/crimson-citrus-tart-stockcake.jpg' },
+            { id: 5, name: 'Rose-T Coffee', price: 145, category: 'coffee', image: 'https://th.bing.com/th/id/OIP.qvvVmnuBxN_e-iFby53QZwHaL9?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+            { id: 6, name: 'Choco Mallow', price: 125, category: 'coffee', image: 'https://www.newportworldresorts.com/sites/default/files/2023-12/F%26B-HIEx-Choco-chip-1080x1080_0.jpg' },
+            { id: 7, name: 'Heartwood Latte', price: 160, category: 'coffee', image: 'https://tse2.mm.bing.net/th/id/OIP.4zYchtqc3aVLYImK1boSogHaJ1?rs=1&pid=ImgDetMain&o=7&rm=3' },
+            { id: 8, name: 'Pitaya Latte', price: 175, category: 'coffee', image: 'https://images.unsplash.com/photo-1572414285744-a488e02ce6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
+            { id: 9, name: 'Pink Chai', price: 95, category: 'tea', image: 'https://cookingwithmee.com/assets/images/1738778343283-fp4e62uy.webp' },
+            { id: 10, name: 'Kashmir Blush', price: 110, category: 'tea', image: 'https://recipesize.com/wp-content/uploads/2025/04/pakoblog_a_top-down_view_of_Kashmiri_Chai_-_Authentic_Pakistani_4725a5be-bca9-4c40-9041-97e559a59eae.png' },
+            { id: 11, name: 'Golden Glow', price: 105, category: 'tea', image: 'https://thumbs.dreamstime.com/b/portrait-shot-tea-cup-golden-hour-warm-sits-white-saucer-wooden-table-bathed-soft-glow-sunset-395976706.jpg?w=576' },
+            { id: 12, name: 'Strawberry Milk Tea', price: 120, category: 'tea', image: 'https://th.bing.com/th/id/OIP.CaMUYODZ62-oQfYLSFJVTAHaLG?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+            updateCartCount();
+        });
+
+        // Display products
+        function displayProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            const filteredProducts = currentFilter === 'all' 
+                ? products 
+                : products.filter(p => p.category === currentFilter);
+            
+            productsGrid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://picsum.photos/seed/${product.name.replace(/\s+/g, '')}/200/150.jpg'">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="price">₱${product.price}</p>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter products
+        function filterProducts(category) {
+            currentFilter = category;
+            displayProducts();
+            scrollToSection('shop');
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCartCount();
+            showNotification(`${product.name} added to cart!`);
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        // Toggle cart modal
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            if (modal.style.display === 'block') {
+                displayCartItems();
+            }
+        }
+
+        // Display cart items
+        function displayCartItems() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+                cartTotal.textContent = '0';
+                return;
+            }
+            
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://picsum.photos/seed/${item.name.replace(/\s+/g, '')}/60/60.jpg'">
+                    </div>
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <p>₱${item.price}</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                    </div>
+                    <div class="cart-item-total">
+                        ₱${item.price * item.quantity}
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = total;
+        }
+
+        // Update quantity
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    displayCartItems();
+                    updateCartCount();
+                }
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            displayCartItems();
+            updateCartCount();
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            showNotification('Proceeding to checkout...');
+            // Here you would typically redirect to a checkout page
+        }
+
+        // Navigation functions
+        function scrollToShop() {
+            scrollToSection('shop');
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Social media links
+        function openSocial(platform) {
+            showNotification(`Opening ${platform}...`);
+            // Here you would typically open the actual social media page
+        }
+
+        // Legal pages
+        function showTerms() {
+            showNotification('Terms & Conditions page would open here');
+        }
+
+        function showPrivacy() {
+            showNotification('Privacy Policy page would open here');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Close cart when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                toggleCart();
+            }
+        }
+    </script>
+</body>
+</html>
